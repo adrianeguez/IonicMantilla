@@ -1,3 +1,45 @@
 <ion-view view-title="Lista Empresas">
+  <ion-content>
+    <ul class="list">
+      <li class="item" ng-repeat="lista in clientes">
+        {{lista.nombreEmpresa}}
+      </li>
+    </ul>
+    <br>
+    <br>
+    <div class="list">
+      <label class="item item-input">
+        <input type="text" placeholder="Nombre Empresa" ng-model="nuevoCliente.nombreEmpresa">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Nombre Comercial" ng-model="nuevoCliente.nombreComercial">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Descripcion" ng-model="nuevoCliente.descripcion">
+      </label>
+      <label class="item item-input">
+        <input type="date" placeholder="Fecha Creacion" ng-model="nuevoCliente.fechaCreacion">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Direccion" ng-model="nuevoCliente.direccion">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Telefono" ng-model="nuevoCliente.telefono">
+      </label>
+      <label class="item item-input">
+        <input type="email" placeholder="Correo" ng-model="nuevoCliente.correo">
+      </label>
+    </div>
+
+
+    <div class="list card">
+
+      <div class="item item-avatar">
+        <h2>{{nuevoCliente.nombreEmpresa}}</h2>
+        <p>...</p>
+      </div>
+
+    </div>
+  </ion-content>
 
 </ion-view>

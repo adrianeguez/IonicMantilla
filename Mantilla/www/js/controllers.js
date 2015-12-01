@@ -4,12 +4,22 @@ angular.module('starter.controllers', [])
 .controller('EmpresaCtrl', function ($scope, ClienteFactory) {
   var vm = $scope;
 
-  vm.vergaCuloTeta = "Hola";
+  vm.nuevoCliente = {
+    nombreEmpresa:'',
+    nombreComercial:'',
+    descripcion:'',
+    fechaCreacion:'',
+    direccion:'',
+    telefono:'',
+    correo:''
+  };
+
 
   ClienteFactory.query()
     .$promise.then(respondioOk, respondioError);
 
   function respondioOk(data) {
+    vm.clientes = data;
     console.log(data);
   }
 
