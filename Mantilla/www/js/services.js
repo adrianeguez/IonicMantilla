@@ -49,10 +49,25 @@ angular.module('starter.services', [])
   };
 })
 
-.factory('EmpresaFactory', function ($resource) {
+.factory('ClienteFactory', function ($resource) {
 
   var resource = $resource(
-    'http://localhost:1337/Empresa/:id', {
+    'https://maticore-backend-adrianeguez.c9.io/Cliente/:id', {
+      id: '@id'
+    }, {
+      update: {
+        method: 'PUT'
+      }
+    });
+
+  return resource;
+
+})
+
+  .factory('CuentaFactory', function ($resource) {
+
+  var resource = $resource(
+    'https://maticore-backend-adrianeguez.c9.io/Cuenta/:id', {
       id: '@id'
     }, {
       update: {

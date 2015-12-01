@@ -1,12 +1,12 @@
 angular.module('starter.controllers', [])
 
 
-.controller('EmpresaCtrl', function ($scope, EmpresaFactory) {
+.controller('EmpresaCtrl', function ($scope, ClienteFactory) {
   var vm = $scope;
 
   vm.vergaCuloTeta = "Hola";
 
-  EmpresaFactory.query()
+  ClienteFactory.query()
     .$promise.then(respondioOk, respondioError);
 
   function respondioOk(data) {

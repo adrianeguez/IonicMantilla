@@ -30,7 +30,5 @@ module.exports = {
       collection:'productos',
       via:'idEmpresa'
     }
-
-
   }
 };
