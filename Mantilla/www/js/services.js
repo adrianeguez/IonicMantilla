@@ -51,6 +51,8 @@ angular.module('starter.services', [])
 
 .factory('ClienteFactory', function ($resource) {
 
+  //$resource(URL,PARAMETROS,NUEVOSMETODOS)
+
   var resource = $resource(
     'https://maticore-backend-adrianeguez.c9.io/Cliente/:id', {
       id: '@id'

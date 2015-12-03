@@ -1,42 +1,114 @@
-<ion-view view-title="Lista Empresas">
+<ion-view hide-nav-bar="true">
   <ion-content>
+    <ion-header-bar class="bar-calm">
+      <div class="buttons">
+        <button class="button button-icon icon ion-trash-a" ng-click="opcionesLista.mostrarBorrar = !opcionesLista.mostrarBorrar"></button>
+      </div>
+      <h1 class="title">Clientes</h1>
+      <div class="buttons">
+        <!--
+        <button class="button" ng-click="data.showDelete = false; data.showReorder = !data.showReorder">
+          Ordenar
+        </button>
+-->
+      </div>
+    </ion-header-bar>
+
+
+
+
+    <!--
+    <ion-list show-delete="opcionesLista.mostrarBorrar" show-reorder="data.showReorder">
+
+      <ion-item ng-repeat="item in items"
+                item="item"
+                href="#/item/{{item.id}}" class="item-remove-animate">
+        Item {{ item.id }}
+        <ion-delete-button class="ion-minus-circled"
+                           ng-click="onItemDelete(item)">
+        </ion-delete-button>
+        <ion-option-button class="button-assertive"
+                           ng-click="edit(item)">
+          Edit
+        </ion-option-button>
+        <ion-option-button class="button-calm"
+                           ng-click="share(item)">
+          Share
+        </ion-option-button>
+        <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+      </ion-item>
+
+    </ion-list>
+-->
+
+    <ion-list show-delete="opcionesLista.mostrarBorrar">
+      <ion-item ng-repeat="unCliente in clientes" class="item-remove-animate" item="unCliente">
+        {{ unCliente.nombreEmpresa }}
+        <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(unCliente)">
+        </ion-delete-button>
+        <ion-option-button class="button-energized" ng-click="editarCliente(unCliente)">
+          Editar
+        </ion-option-button>
+        <!--
+        <ion-option-button class="button-calm"
+                           ng-click="share(item)">
+          Share
+        </ion-option-button>
+-->
+      </ion-item>
+    </ion-list>
+
+    <!--
+
     <ul class="list">
       <li class="item" ng-repeat="lista in clientes">
         {{lista.nombreEmpresa}}
       </li>
     </ul>
+-->
     <br>
     <br>
-    <div class="list">
-      <label class="item item-input">
-        <input type="text" placeholder="Nombre Empresa" ng-model="nuevoCliente.nombreEmpresa">
-      </label>
-      <label class="item item-input">
-        <input type="text" placeholder="Nombre Comercial" ng-model="nuevoCliente.nombreComercial">
-      </label>
-      <label class="item item-input">
-        <input type="text" placeholder="Descripcion" ng-model="nuevoCliente.descripcion">
-      </label>
-      <label class="item item-input">
-        <input type="date" placeholder="Fecha Creacion" ng-model="nuevoCliente.fechaCreacion">
-      </label>
-      <label class="item item-input">
-        <input type="text" placeholder="Direccion" ng-model="nuevoCliente.direccion">
-      </label>
-      <label class="item item-input">
-        <input type="text" placeholder="Telefono" ng-model="nuevoCliente.telefono">
-      </label>
-      <label class="item item-input">
-        <input type="email" placeholder="Correo" ng-model="nuevoCliente.correo">
-      </label>
-    </div>
+    <form ng-submit="anadirCliente()">
+      <div class="list">
+        <label class="item item-input">
+          <input required type="text" placeholder="Nombre Empresa" ng-model="nuevoCliente.nombreEmpresa">
+        </label>
+        <label class="item item-input">
+          <input required type="text" placeholder="Nombre Comercial" ng-model="nuevoCliente.nombreComercial">
+        </label>
+        <label class="item item-input">
+          <input required type="text" placeholder="Descripcion" ng-model="nuevoCliente.descripcion">
+        </label>
+        <label class="item item-input">
+          <input required type="date" placeholder="Fecha Creacion" ng-model="nuevoCliente.fechaCreacion">
+        </label>
+        <label class="item item-input">
+          <input required type="text" placeholder="Direccion" ng-model="nuevoCliente.direccion">
+        </label>
+        <label class="item item-input">
+          <input required type="text" placeholder="Telefono" ng-model="nuevoCliente.telefono">
+        </label>
+        <label class="item item-input">
+          <input required type="email" placeholder="Correo" ng-model="nuevoCliente.correo">
+        </label>
+        <button type="submit" class="button button-block button-balanced">
+          Ingresar Nuevo Cliente
+        </button>
+      </div>
+    </form>
 
 
     <div class="list card">
 
       <div class="item item-avatar">
-        <h2>{{nuevoCliente.nombreEmpresa}}</h2>
-        <p>...</p>
+        <h1>{{nuevoCliente.nombreEmpresa}}</h1>
+        <h2>{{nuevoCliente.nombreComercial}}</h2>
+        <p>Descripcion: {{nuevoCliente.descripcion}}</p>
+        <p>Fecha Registro: {{nuevoCliente.fechaCreacion | date:'medium':'-0500'}}</p>
+        <p>Direccion: {{nuevoCliente.direccion}}</p>
+        <p>Telefono: {{nuevoCliente.telefono}}</p>
+        <p>Correo: {{nuevoCliente.correo}}</p>
+
       </div>
 
     </div>
